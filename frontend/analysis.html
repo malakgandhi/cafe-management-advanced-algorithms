@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usage Analysis | Café Stockroom</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">C</span><span>Café <b>Stockroom</b></span></a>
+    <nav aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Overview</a>
+      <a class="nav-link" href="records.html">Usage records</a>
+      <a class="nav-link active" href="analysis.html">Usage analysis</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-intro">
+      <p class="eyebrow">ALGORITHM-POWERED INSIGHTS</p>
+      <h1>Analyze usage</h1>
+      <p>Choose an ingredient and date range to explore consumption and a high-usage threshold.</p>
+    </section>
+
+    <p id="analysis-message" class="notice" role="status"></p>
+    <section class="panel analysis-panel">
+      <div class="panel-heading"><div><h2>Set your range</h2><p class="muted">Both selected dates are included in the total.</p></div></div>
+      <form id="analysis-form" class="analysis-form">
+        <label>Ingredient<select id="ingredient" required></select></label>
+        <label>From date<input id="from" type="date" required></label>
+        <label>To date<input id="to" type="date" required></label>
+        <button class="button" type="submit">Run analysis <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+
+    <section id="analysis-results" class="results-section" hidden>
+      <div class="section-heading"><div><p class="eyebrow">RESULTS</p><h2 id="result-title">Usage summary</h2></div></div>
+      <div class="result-grid">
+        <article class="result-card result-primary"><span class="stat-label">TOTAL IN SELECTED RANGE</span><strong id="range-total">—</strong><span id="range-caption" class="stat-note"></span></article>
+        <article class="result-card"><span class="stat-label">90TH PERCENTILE DAILY USAGE</span><strong id="percentile-value">—</strong><span class="stat-note">Calculated from all records for this ingredient</span></article>
+      </div>
+    </section>
+    <footer class="site-footer">Café Stockroom <span>·</span> Usage analysis</footer>
+  </main>
+</body>
+</html>
